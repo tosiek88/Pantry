@@ -7,7 +7,7 @@ $primary: rgb(64, 45, 29);
 /* RGB */
 $color1: rgb(232, 191, 168);
 $color2: rgb(220, 138, 85);
-$color3: rgb(153, 185, 212);
+$color3: rgb(123, 165, 192);
 $color4: rgb(195, 144, 115);
 $color5: rgb(213, 149, 53);
 
@@ -19,6 +19,29 @@ $color5: rgb(213, 149, 53);
 
 .App {
 }
+%icon {
+  cursor: pointer;
+  fill: $color1;
+  color: $color1;
+  &:hover {
+    color: $secondary-light1;
+    fill: $secondary-light1;
+  }
+}
+.icon {
+  cursor: pointer;
+  width: 60px;
 
-.test {
+  margin: 10px auto;
+}
+.icon > p {
+  @extend %icon;
+}
+
+div.icon > i > svg {
+  @extend %icon;
+}
+
+.MuiListItemText-primary {
+  color: $color3;
 }

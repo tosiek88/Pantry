@@ -1,6 +1,7 @@
 import { createMuiTheme, makeStyles, Theme } from '@material-ui/core/styles';
 import { withStyles } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
+import { orange } from '@material-ui/core/colors';
 
 export const theme: Theme = createMuiTheme({
     palette: {
@@ -46,11 +47,10 @@ export const useStyles = makeStyles((theme) => {
             },
         },
         content: {
-            backgroundColor: theme.palette.grey['A100'],
+            backgroundColor: theme.palette.grey['50'],
             width: '400px',
             height: '500px',
             marginLeft: '50px',
         },
-        navigation: {},
     };
 });
