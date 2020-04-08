@@ -1,0 +1,15 @@
+#+BEGIN_SRC typescript
+const a=[2,3,4]
+console.log(`test`)
+console.table(a);
+#+END_SRC
+
+#+RESULTS:
+: test
+: ┌─────────┬────────┐
+: │ (index) │ Values │
+: ├─────────┼────────┤
+: │    0    │   2    │
+: │    1    │   3    │
+: │    2    │   4    │
+: └─────────┴────────┘
