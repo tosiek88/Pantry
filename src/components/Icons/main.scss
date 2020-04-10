@@ -1,0 +1,44 @@
+@import '../../scss_var.scss';
+%icon {
+  cursor: pointer;
+  fill: $color1;
+  color: $color1;
+  &:hover {
+    color: $secondary-light1;
+    fill: $secondary-light1;
+  }
+}
+.icon {
+  cursor: pointer;
+  width: 60px;
+  margin: 10px auto;
+}
+p > b {
+  color: black;
+}
+div.icon p {
+  @extend %icon;
+}
+
+div.icon > i > svg {
+  @extend %icon;
+}
+div.plus-icon > i > svg {
+  @extend %icon;
+  width: 30px;
+  height: 30px;
+  fill: $contrast;
+  &:hover {
+    fill: $color2;
+  }
+}
+
+div.minus-icon > i > svg {
+  @extend %icon;
+  width: 30px;
+  height: 30px;
+  fill: $contrast;
+  &:hover {
+    fill: $color2;
+  }
+}

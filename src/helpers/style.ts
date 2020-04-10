@@ -1,7 +1,6 @@
 import { createMuiTheme, makeStyles, Theme } from '@material-ui/core/styles';
 import { withStyles } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
-import { orange } from '@material-ui/core/colors';
 
 export const theme: Theme = createMuiTheme({
     palette: {

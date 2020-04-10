@@ -1,47 +1,9 @@
-/* RGB */
-$secondar: rgb(242, 174, 114);
-$prmary-light1: rgb(140, 89, 59);
-$secondary-light1: rgb(191, 161, 143);
-$contrast: rgb(217, 98, 72);
-$primary: rgb(64, 45, 29);
-/* RGB */
-$color1: rgb(232, 191, 168);
-$color2: rgb(220, 138, 85);
-$color3: rgb(123, 165, 192);
-$color4: rgb(195, 144, 115);
-$color5: rgb(213, 149, 53);
-
+@import 'scss_var.scss';
 * {
-  margin: 0px;
-  padding: 0px;
-  color: white;
+    margin: 0px;
+    padding: 0px;
+    color: white;
 }
-
-.App {
-}
-%icon {
-  cursor: pointer;
-  fill: $color1;
-  color: $color1;
-  &:hover {
-    color: $secondary-light1;
-    fill: $secondary-light1;
-  }
-}
-.icon {
-  cursor: pointer;
-  width: 60px;
-
-  margin: 10px auto;
-}
-.icon > p {
-  @extend %icon;
-}
-
-div.icon > i > svg {
-  @extend %icon;
-}
-
-.MuiListItemText-primary {
-  color: $color3;
+p {
+    color: rgba(0, 0, 0, 0.5);
 }

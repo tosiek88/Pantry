@@ -1,0 +1,25 @@
+@import '../../scss_var.scss';
+ul.MuiList-root li {
+  background-color: rgba(1, 1, 1, 0.05);
+}
+
+ul.MuiList-root li:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+span.MuiTypography-body1 {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: $color3;
+}
+
+.MuiTypography-body2 {
+  font-style: italic;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
