@@ -1,18 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { ThemeProvider } from '@material-ui/core';
 import { theme } from './helpers/style';
-import { createContext } from 'react';
-
-export interface ICounter {
-  counter: number;
-}
-const localStorage = JSON.parse(window.localStorage.getItem('state'));
-const initialState: ICounter = localStorage === null ? { counter: 0 } : localStorage;
-export const GlobalContext = createContext(initialState);
+import { initialState, GlobalContext } from './store/store';
 
 ReactDOM.render(
   <GlobalContext.Provider value={initialState}>

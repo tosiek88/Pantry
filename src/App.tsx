@@ -7,30 +7,10 @@ import React, { useReducer, useContext } from 'react';
 import { StoreListItem } from './components/StoreListItem/StoreListItem';
 import './App.scss';
 import { useStyles, theme } from './helpers/style';
-import { GlobalContext } from './index';
-import { ICounter } from './index';
-
+import { GlobalContext } from './store/store';
+import { ICounter, IAction } from './store/type';
+import { reducer } from './store/reducers/counterReducer';
 require('dotenv').config();
-
-interface IAction<T> {
-  type: string;
-  payload: T;
-}
-
-const reducer = (state: ICounter, action: IAction<ICounter>): ICounter => {
-  let currentState = state;
-  switch (action.type) {
-    case 'INC':
-      currentState = { ...state, counter: state.counter + 1 };
-      break;
-    case 'DEC':
-      currentState = { ...state, counter: state.counter - 1 };
-      break;
-  }
-  window.localStorage.clear();
-  window.localStorage.setItem('state', JSON.stringify(currentState));
-  return currentState;
-};
 
 const App = () => {
   const classes = useStyles(theme);
