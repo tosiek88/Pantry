@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import ListItemText from '@material-ui/core/ListItemText';
-import { ItemsContext } from '../../App';
 
 export const ListItemContent: React.FC<{ qty?: number }> = ({ qty }) => {
   return (

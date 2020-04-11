@@ -3,37 +3,46 @@ import { StoreIcon, ListIcon, CalendarIcon } from './components/Icons';
 import AppBar from '@material-ui/core/AppBar';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import React, { useState } from 'react';
+import React, { useReducer, useContext } from 'react';
 import { StoreListItem } from './components/StoreListItem/StoreListItem';
 import './App.scss';
-import { useStyles } from './helpers/style';
-import { createContext } from 'react';
+import { useStyles, theme } from './helpers/style';
+import { GlobalContext } from './index';
+import { ICounter } from './index';
+
 require('dotenv').config();
 
-interface IStore {
-  counter: number;
+interface IAction<T> {
+  type: string;
+  payload: T;
 }
 
-interface IitemContext {
-  store: IStore;
-  setStore: (prev: IStore, next: IStore) => IStore;
-}
-const store: IStore = { counter: 0 };
-const context: IitemContext = {
-  store: store,
-  setStore: (prev, next) => next,
+const reducer = (state: ICounter, action: IAction<ICounter>): ICounter => {
+  let currentState = state;
+  switch (action.type) {
+    case 'INC':
+      currentState = { ...state, counter: state.counter + 1 };
+      break;
+    case 'DEC':
+      currentState = { ...state, counter: state.counter - 1 };
+      break;
+  }
+  window.localStorage.clear();
+  window.localStorage.setItem('state', JSON.stringify(currentState));
+  return currentState;
 };
 
-export const ItemsContext = createContext(context);
-
 const App = () => {
-  const classes = useStyles();
-  const setStore = (prev: IStore, next: IStore): IStore => {
-    next.counter = prev.counter + 1;
-    return next;
-  };
+  const classes = useStyles(theme);
+  const ctx = useContext(GlobalContext);
+  const [counterState, counterDispatch] = useReducer(reducer, ctx);
 
-  const [state, setState] = useState<IitemContext>({ store: { counter: 0 }, setStore: setStore });
+  const onClickPlus = () => {
+    counterDispatch({ type: 'INC', payload: { counter: 1 } });
+  };
+  const onClickMinus = () => {
+    counterDispatch({ type: 'DEC', payload: { counter: 1 } });
+  };
 
   return (
     <div className={classes.root}>
@@ -41,10 +50,11 @@ const App = () => {
         <Grid item xs={12} md={1}></Grid>
         <Grid item xs={12} md={4}>
           <div className={classes.banner}>
-            <h1>Your Pantry Store</h1>
+            <h1 onClick={onClickPlus}> + </h1>
+            <h1 onClick={onClickMinus}> - </h1>
+            <h1>Your Pantry Store {counterState.counter}</h1>
           </div>
         </Grid>
-
         <Grid item xs={12} md={7}>
           <Paper className={classes.content} elevation={10}>
             <AppBar position="static">
@@ -55,11 +65,9 @@ const App = () => {
               </Toolbar>
             </AppBar>
             <List>
-              <ItemsContext.Provider value={state}>
-                <StoreListItem categoryLabel="vege" />
-                <StoreListItem categoryLabel="meat" />
-                <StoreListItem categoryLabel="dairy" />
-              </ItemsContext.Provider>
+              <StoreListItem categoryLabel="vege" />
+              <StoreListItem categoryLabel="meat" />
+              <StoreListItem categoryLabel="dairy" />
             </List>
           </Paper>
         </Grid>
