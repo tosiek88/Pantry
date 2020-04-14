@@ -1,24 +1,21 @@
 import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
-import { Category } from '../Category/Category';
-import { ItemControl } from '../ItemControl/ItemControl';
-import { ListItemContent } from '../ListItemContent/ListItemContent';
+import { Category } from 'components/Category/Category';
+import { ItemControl } from 'components/ItemControl/ItemControl';
+import { ProductContent } from 'components/ListItemContent/ListItemContent';
 import './main.scss';
-import vegetables from '../../asset/icons/PNG  64 x 64/vegetables.png';
-import dairy from '../../asset/icons/PNG  64 x 64/dairy.png';
+import { IProduct } from 'store/store';
 
-export interface StoreListItemProps {
-  categoryLabel: string;
-}
+export interface StoreListItemProps extends IProduct { }
 
-export const StoreListItem: React.FC<StoreListItemProps> = ({
-  categoryLabel,
-}: StoreListItemProps) => {
+export const StoreListItem: React.FC<{ product: StoreListItemProps }> = (props: {
+  product: StoreListItemProps;
+}) => {
   return (
     <ListItem>
-      <Category label={categoryLabel} />
-      <ListItemContent />
-      <ItemControl />
+      <Category category={props.product.category} />
+      <ProductContent product={props.product} />
+      <ItemControl id={props.product.id} />
     </ListItem>
   );
 };

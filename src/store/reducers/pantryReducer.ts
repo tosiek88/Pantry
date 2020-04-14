@@ -1,10 +1,10 @@
+import { ProductState } from 'store/store';
 import { Action } from 'types/type';
-import { ICounter } from 'store/store';
 import { Reducer } from 'react';
 
-export const betterReducer: Reducer<ICounter, Action<ICounter>> = (state, action): ICounter => {
+export const pantryReducer: Reducer<ProductState, Action<ProductState>> = (state, action) => {
     const currentState = action.call(state, action.payload);
     window.localStorage.clear();
     window.localStorage.setItem('state', JSON.stringify(currentState));
-    return currentState;
+    return state;
 };

@@ -9,12 +9,14 @@
         "strict": true,
         "forceConsistentCasingInFileNames": true,
         "module": "esnext",
+        "inlineSourceMap": true,
         "moduleResolution": "node",
         "resolveJsonModule": true,
         "isolatedModules": true,
         "noEmit": true,
         "jsx": "react",
-        "strictNullChecks": false
+        "strictNullChecks": false,
+        "baseUrl": "./src/"
     },
     "include": ["src"],
     "exclude": ["**flycheck**"]

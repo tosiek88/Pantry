@@ -4,35 +4,26 @@ import AppBar from '@material-ui/core/AppBar';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import React, { useReducer, useContext } from 'react';
-import { StoreListItem } from './components/StoreListItem/StoreListItem';
-import './App.scss';
-import { useStyles, theme } from './helpers/style';
-import { GlobalContext } from './store/store';
-import { ICounter, IAction } from './store/type';
-import { reducer } from './store/reducers/counterReducer';
+import { StoreListItem } from 'components/StoreListItem/StoreListItem';
+import 'App.scss';
+import { useStyles, theme } from 'helpers/style';
+import { GlobalContext } from 'store/store';
+import { pantryReducer } from 'store/reducers/pantryReducer';
 require('dotenv').config();
 
 const App = () => {
   const classes = useStyles(theme);
   const ctx = useContext(GlobalContext);
-  const [counterState, counterDispatch] = useReducer(reducer, ctx);
-
-  const onClickPlus = () => {
-    counterDispatch({ type: 'INC', payload: { counter: 1 } });
-  };
-  const onClickMinus = () => {
-    counterDispatch({ type: 'DEC', payload: { counter: 1 } });
-  };
-
+  console.log(ctx);
+  const [PantryState] = useReducer(pantryReducer, ctx);
+  console.log(PantryState);
   return (
     <div className={classes.root}>
       <Grid container spacing={0}>
         <Grid item xs={12} md={1}></Grid>
         <Grid item xs={12} md={4}>
           <div className={classes.banner}>
-            <h1 onClick={onClickPlus}> + </h1>
-            <h1 onClick={onClickMinus}> - </h1>
-            <h1>Your Pantry Store {counterState.counter}</h1>
+            <h1>Your Pantry Store </h1>
           </div>
         </Grid>
         <Grid item xs={12} md={7}>
@@ -45,9 +36,7 @@ const App = () => {
               </Toolbar>
             </AppBar>
             <List>
-              <StoreListItem categoryLabel="vege" />
-              <StoreListItem categoryLabel="meat" />
-              <StoreListItem categoryLabel="dairy" />
+              <StoreListItem product={PantryState.products[0]} />
             </List>
           </Paper>
         </Grid>

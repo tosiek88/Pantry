@@ -5,10 +5,10 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { ThemeProvider } from '@material-ui/core';
 import { theme } from './helpers/style';
-import { initialState, GlobalContext } from './store/store';
+import { initState, GlobalContext } from './store/store';
 
 ReactDOM.render(
-  <GlobalContext.Provider value={initialState}>
+  <GlobalContext.Provider value={initState}>
     <ThemeProvider theme={theme}>
       <React.StrictMode>
         <App />
