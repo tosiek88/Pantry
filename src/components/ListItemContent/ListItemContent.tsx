@@ -11,10 +11,13 @@ export const ProductContent: React.FC<ProductContentProp> = ({ product }: Produc
   return (
     <div style={{ width: '50%', marginLeft: '15px', marginRight: '15px' }}>
       <div style={{ margin: '0 auto', width: '180px' }}>
-        <ListItemText primary={name} secondary={`Minimum qt: ${product.minQty}`} />
+        <ListItemText
+          primary={name}
+          secondary={`Minimum amount: ${product.minQty} [${product.unit}]`}
+        />
         <p>
-          Quantity : <b>{product.qty}</b>
-        </p>
+          Quantity : <b>{product.qty}</b> [{product.unit}]
+                </p>
       </div>
     </div>
   );

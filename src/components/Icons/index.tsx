@@ -1,5 +1,5 @@
 import React from 'react';
-import { CustomIcon } from '../CustomIcon';
+import { CustomIcon } from 'components/Icons/CustomIcon';
 import { calendar } from 'react-icons-kit/icomoon/calendar';
 import { plus } from 'react-icons-kit/icomoon/plus';
 import { minus } from 'react-icons-kit/icomoon/minus';

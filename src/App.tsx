@@ -14,9 +14,7 @@ require('dotenv').config();
 const App = () => {
   const classes = useStyles(theme);
   const ctx = useContext(GlobalContext);
-  console.log(ctx);
   const [PantryState] = useReducer(pantryReducer, ctx);
-  console.log(PantryState);
   return (
     <div className={classes.root}>
       <Grid container spacing={0}>
