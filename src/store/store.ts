@@ -20,11 +20,13 @@ export interface IProduct {
     category: ICategory;
 }
 export interface ProductState {
+    counter: number;
     products: IProduct[];
 }
 
 export let localStorage = JSON.parse(window.localStorage.getItem('state'));
 let initialStateProducts: ProductState = {
+    counter: 0,
     products: [
         {
             id: Guid.create(),

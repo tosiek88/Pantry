@@ -12,7 +12,7 @@ interface Iicon {
 }
 
 export const PlusIcon: React.FC<Iicon> = (props: Iicon) => (
-  <CustomIcon icon={plus} label="plus" classStyle="plus-icon" />
+  <CustomIcon icon={plus} label="" classStyle="plus-icon" />
 );
 
 export const MinusIcon: React.FC<Iicon> = (props: Iicon) => (
