@@ -1,16 +1,25 @@
-import React, { useContext, useReducer } from 'react';
+import React, { useContext } from 'react';
 import { PlusIcon, MinusIcon } from '../Icons';
-import { Guid } from 'guid-typescript';
-import { inc } from 'store/actions/pantryItemActions';
+import { GlobalContext, IProduct, ProductState } from 'store/store';
+import { incrementAmount } from 'store/actions/pantryItemActions';
+import { Action } from 'types/type';
 
-export const ItemControl: React.FC<{ guid: Guid }> = (props: { guid: Guid }) => {
-    // const currentItem = pantryStateCtx.products.find((it) => {
-    //     return it.id.toString() === props.guid.toString();
-    // });
+export const ItemControl: React.FC<{ guid: string }> = (props: { guid: string }) => {
+    const { globalState, dispatch } = useContext<{
+        globalState: ProductState;
+        dispatch: React.Dispatch<Action<ProductState>>;
+    }>(GlobalContext);
+
+    const currentItem = globalState.products.find((it: IProduct) => {
+        return it.id === props.guid;
+    });
 
     return (
         <div style={{ marginRight: '10px' }}>
-            <button>
+            <button
+                onClick={() => {
+                    dispatch({ call: incrementAmount.call, payload: { products: [currentItem] } });
+                }}>
                 <PlusIcon />
             </button>
             <button>
