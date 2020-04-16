@@ -1,31 +1,23 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import { Category } from 'components/Category/Category';
 import { ItemControl } from 'components/ItemControl/ItemControl';
 import { ProductContent } from 'components/ListItemContent/ListItemContent';
 import './main.scss';
-import { IProduct, GlobalContext } from 'store/store';
-import { inc } from 'store/actions/pantryItemActions';
+import { IProduct } from 'store/store';
+
 export interface StoreListItemProps extends IProduct {}
 
-export const StoreListItem: React.FC<{ product?: StoreListItemProps; counter: number }> = (props: {
-    product?: StoreListItemProps;
-    counter: number;
-}) => {
-    const ctx = useContext(GlobalContext);
+export const upperCaseFirstLetter = (text: string): string => {
+    return text.charAt(0).toUpperCase() + text.substring(1);
+};
 
+export const StoreListItem: React.FC<{ product?: StoreListItemProps }> = (props: { product?: StoreListItemProps }) => {
     return (
         <ListItem>
-            <button
-                onClick={() => {
-                    ctx.dispatch(inc);
-                }}
-                style={{ color: 'black' }}>
-                test
-            </button>
-            {/*     <Category category={props.product.category} /> */}
-            {/*     <ProductContent product={props.product} /> */}
-            {/*     <ItemControl guid={props.product.id} /> */}
+            <Category category={props.product.category} />
+            <ProductContent product={props.product} />
+            <ItemControl guid={props.product.id} />
         </ListItem>
     );
 };
