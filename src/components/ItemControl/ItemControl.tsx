@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { PlusIcon, MinusIcon } from '../Icons';
 import { GlobalContext, IProduct, ProductState } from 'store/store';
-import { incrementAmount } from 'store/actions/pantryItemActions';
+import { incrementAmount, decrementAmount } from 'store/actions/pantryItemActions';
 import { Action } from 'types/type';
 
 export const ItemControl: React.FC<{ guid: string }> = (props: { guid: string }) => {
@@ -22,7 +22,10 @@ export const ItemControl: React.FC<{ guid: string }> = (props: { guid: string })
                 }}>
                 <PlusIcon />
             </button>
-            <button>
+            <button
+                onClick={() => {
+                    dispatch({ call: decrementAmount.call, payload: { products: [currentItem] } });
+                }}>
                 <MinusIcon />
             </button>
         </div>

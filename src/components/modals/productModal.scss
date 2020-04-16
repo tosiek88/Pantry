@@ -1,0 +1,36 @@
+
+@import 'scss_var.scss';
+*{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.modal{
+  width: 400px;
+  height: 500px;
+  margin:20vh auto;
+}
+a{
+  text-decoration: none;
+}
+$size:25px;
+$margin:-$size/2;
+a > button{
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  margin:$margin $margin;
+  float: right;
+  background-color:$color3;
+  cursor: pointer;
+}
+.modal-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color:rgba(0,0,0,0.5);
+  -webkit-overflow-scrolling: touch;
+}

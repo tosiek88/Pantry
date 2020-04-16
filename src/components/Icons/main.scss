@@ -10,17 +10,26 @@
 }
 .icon {
   cursor: pointer;
-  width: 60px;
+  width: 80px;
   margin: 10px auto;
 }
+
+div.icon>p{
+  text-align: center;
+}
+
 p > b {
   color: black;
 }
 div.icon p {
   @extend %icon;
 }
+div.icon {
+  width:80px;
+}
 
 div.icon > i > svg {
+  margin:0px 10px;
   @extend %icon;
 }
 div.plus-icon > i > svg {
