@@ -5,7 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import 'App.scss';
 import { StoreListItem } from 'components/StoreListItem/StoreListItem';
 import { theme, useStyles } from 'helpers/style';
-import React, { useReducer, useMemo, useCallback } from 'react';
+import React, { useReducer } from 'react';
 import { pantryReducer } from 'store/reducers/pantryReducer';
 import { initState, GlobalContext } from 'store/store';
 import { CalendarIcon, ListIcon, StoreIcon } from './components/Icons';
@@ -15,6 +15,9 @@ require('dotenv').config();
 const App = () => {
     const classes = useStyles(theme);
     const [globalState, dispatch] = useReducer(pantryReducer, initState);
+    const products = globalState.products.map((it) => {
+        return <StoreListItem key={it.id} product={it} />;
+    });
 
     return (
         <GlobalContext.Provider value={{ globalState, dispatch }}>
@@ -23,7 +26,7 @@ const App = () => {
                     <Grid item xs={12} md={1}></Grid>
                     <Grid item xs={12} md={4}>
                         <div className={classes.banner}>
-                            <h1>Your Pantry Store {globalState.counter}</h1>
+                            <h1>Your Pantry Store </h1>
                         </div>
                     </Grid>
                     <Grid item xs={12} md={7}>
@@ -35,7 +38,7 @@ const App = () => {
                                     <CalendarIcon />
                                 </Toolbar>
                             </AppBar>
-                            <List>{<StoreListItem counter={globalState.counter} />}</List>
+                            <List>{products}</List>
                         </Paper>
                     </Grid>
                 </Grid>
