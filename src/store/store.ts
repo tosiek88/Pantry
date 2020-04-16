@@ -6,13 +6,13 @@ export interface ICounter {
 }
 
 export interface ICategory {
-    id: Guid;
+    id: string;
     name: string;
     iconSrc: string | undefined | null;
 }
 
 export interface IProduct {
-    id: Guid;
+    id: string;
     name: string;
     qty: number;
     minQty: number;
@@ -20,36 +20,34 @@ export interface IProduct {
     category: ICategory;
 }
 export interface ProductState {
-    counter: number;
     products: IProduct[];
 }
 
 export let localStorage = JSON.parse(window.localStorage.getItem('state'));
 let initialStateProducts: ProductState = {
-    counter: 0,
     products: [
         {
-            id: Guid.create(),
+            id: Guid.raw(),
             name: 'Carrot',
             qty: 0,
             minQty: 5,
             unit: 'kg',
             category: {
-                id: Guid.create(),
+                id: Guid.raw(),
                 name: 'vegetables',
                 iconSrc: null,
             },
         },
 
         {
-            id: Guid.create(),
+            id: Guid.raw(),
             name: 'Water',
             qty: 0,
             minQty: 5,
             unit: 'l',
             category: {
-                id: Guid.create(),
-                name: 'Drinks',
+                id: Guid.raw(),
+                name: 'drinks',
                 iconSrc: null,
             },
         },
