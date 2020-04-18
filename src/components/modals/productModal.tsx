@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
-import { withRouter, useParams, Link } from 'react-router-dom';
+import React from 'react';
+import { withRouter, Link } from 'react-router-dom';
 import 'components/modals/productModal.scss';
-import { Modal as ModalUI, Paper } from '@material-ui/core';
+import { Paper } from '@material-ui/core';
 
 const Modal = () => {
-    const url = useParams();
-
     return (
         <div role="button" className="modal-wrapper">
             <Paper elevation={3} className="modal">
