@@ -10,7 +10,6 @@ export const incrementAmount = new Action<ProductState>((state, payload?) => {
             updatedProduct.push(it);
         }
     }
-
     return { ...state, products: updatedProduct };
 });
 
@@ -26,3 +25,9 @@ export const decrementAmount = new Action<ProductState>((state, payload?) => {
 
     return { ...state, products: updatedProduct };
 });
+//Getters
+export const getProductByID = (state: ProductState, id: string): IProduct[] => {
+    return  state.products.filter((it, index, array) => {
+        return it.id === id;
+    });
+};
