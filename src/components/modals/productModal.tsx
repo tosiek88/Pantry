@@ -1,18 +1,25 @@
-import React from 'react';
-import { withRouter, Link } from 'react-router-dom';
-import 'components/modals/productModal.scss';
 import { Paper } from '@material-ui/core';
+import 'components/modals/productModal.scss';
+import React, { useContext } from 'react';
+import { Link, withRouter, useParams } from 'react-router-dom';
+import { GlobalContext, IProduct } from 'store/store';
 
-const Modal = () => {
+const Modal = (): JSX.Element => {
+    const params: { id?: string } = useParams();
+    const { products } = useContext(GlobalContext).globalState;
+    const modalProduct: IProduct = products.find((product: IProduct) => product.id === params.id);
+
     return (
         <div role="button" className="modal-wrapper">
             <Paper elevation={3} className="modal">
                 <div style={{ width: '100%', height: '25px' }}>
-                    <Link to="/store">
+                    <Link to="/">
                         <button>X</button>
                     </Link>
                 </div>
-                <p>CONTENT</p>
+                <div style={{ padding: '20px' }}>
+                    <p>{modalProduct.name}</p>
+                </div>
             </Paper>
         </div>
     );
