@@ -8,7 +8,7 @@ export const ToolbarApp = () => {
     return (
         <AppBar position="static">
             <Toolbar style={{ height: '100px' }}>
-                <Link to="/store" className={'link'}>
+                <Link to="/" className={'link'}>
                     <StoreIcon />
                 </Link>
                 <Link to="/shopping" className={'link'}>
