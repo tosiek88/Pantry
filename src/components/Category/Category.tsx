@@ -11,7 +11,6 @@ export const Category: React.FC<CategoryProps> = ({ category }) => {
     const [categoryState, setCategoryState] = useState<any>('');
     useEffect(() => {
         Icon(category.name).then((file) => {
-            console.log(file);
             setCategoryState(file);
         });
     }, [category.name]);
@@ -19,11 +18,7 @@ export const Category: React.FC<CategoryProps> = ({ category }) => {
     return (
         <div style={{ marginLeft: '15px', marginRight: '15px' }}>
             <div style={{ width: '80px' }}>
-                <img
-                    style={{ display: 'block', margin: 'auto', width: '64px' }}
-                    src={categoryState.default}
-                    alt={category.name}
-                />
+                <img style={{ display: 'block', margin: 'auto', width: '64px' }} src={categoryState.default} alt={category.name} />
             </div>
             <div>
                 <p style={{ textAlign: 'center' }}>{upperCaseFirstLetter(category.name)}</p>

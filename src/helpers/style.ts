@@ -40,9 +40,9 @@ export const useStyles = makeStyles((theme) => {
             fontFamily: 'Roboto, sans-serif',
             textTransform: 'uppercase',
             textShadow: '0px 10px 15px rgba(0, 0, 0, 1)',
-            [theme.breakpoints.up('sm')]: {
+            [theme.breakpoints.up('md')]: {
                 textAlign: 'right',
-                fontSize: '5vh',
+                fontSize: '4vh',
             },
         },
         content: {
