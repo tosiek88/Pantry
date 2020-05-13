@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { ICategory } from 'store/store';
 import { Icon } from 'components/Icons/CategoryIcons';
-import { upperCaseFirstLetter } from 'components/StoreListItem/StoreListItem';
+import { upperCaseFirstLetter } from 'components/Product/Product';
 
-interface CategoryProps {
-    category: ICategory;
-}
+export const Category: React.FC<{ category?: ICategory }> = ({ category }: { category?: ICategory }) => {
+    category = category ? category : ({ name: '' } as ICategory);
 
-export const Category: React.FC<CategoryProps> = ({ category }) => {
     const [categoryState, setCategoryState] = useState<any>('');
     useEffect(() => {
-        Icon(category.name).then((file) => {
-            setCategoryState(file);
-        });
+        Icon(category.name)
+            .then((file) => {
+                setCategoryState(file);
+            })
+            .catch((e) => {
+                console.log(e);
+            });
     }, [category.name]);
 
     return (

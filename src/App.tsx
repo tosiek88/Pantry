@@ -23,6 +23,7 @@ const App = (): JSX.Element => {
                             </h1>
                         </div>
                     </Grid>
+
                     <Grid item xs={12} md={7}>
                         <Main classes={classes} />
                     </Grid>

@@ -15,7 +15,7 @@ export const ItemControl: React.FC<{ guid: string }> = (props: { guid: string })
     });
 
     return (
-        <div style={{ marginRight: '10px' }}>
+        <div style={{ marginRight: '10px', flexFlow: 'column' }}>
             <button
                 onClick={() => {
                     dispatch({ call: incrementAmount.call, payload: { products: [currentItem] } });

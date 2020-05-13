@@ -13,6 +13,7 @@ const filesName = [
     'sausage.png',
     'sweets1.png',
     'sweets.png',
+    'default.png',
     'vegetables.png',
 ];
 
@@ -26,6 +27,10 @@ for (const it of filesName) {
 }
 
 export const Icon = async (name: string) => {
-    const img = await import(`asset/icons/${files[name]}`);
+    let file = filesName.find((nameFile) => {
+        return nameFile === files[name];
+    });
+    file = file ? file : `default.png`;
+    const img = await import(`asset/icons/${file}`);
     return img;
 };

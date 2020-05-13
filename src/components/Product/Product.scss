@@ -1,5 +1,20 @@
 @import '../../scss_var.scss';
-ul.MuiList-root li {
+.MuiListItem-root {
+  a{
+    display: flex;
+  }
+  background-color: rgba(1, 1, 1, 0.05);
+}
+
+.MuiListItem-root:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.MuiList-root {
+  a{
+    display: flex;
+  }
   background-color: rgba(1, 1, 1, 0.05);
 }
 

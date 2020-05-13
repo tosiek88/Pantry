@@ -1,25 +1,20 @@
 import List from '@material-ui/core/List';
-import { StoreListItem } from 'components/StoreListItem/StoreListItem';
+import { Product } from 'components/Product/Product';
 import React, { useContext } from 'react';
 import { GlobalContext, IProduct } from 'store/store';
-import styled from 'styled-components';
 
-const Button = styled.button`
-    color: red;
-`;
-
-const Products = () => {
+const ListProducts = () => {
     let { products } = useContext(GlobalContext).globalState;
 
     products = products.map((it: IProduct) => {
-        return <StoreListItem key={it.id} product={it} />;
+        return <Product key={it.id} product={it} />;
     });
     return (
         <>
-            <Button>test</Button>
             <List>{products}</List>
+            <Product />
         </>
     );
 };
 
-export default Products;
+export default ListProducts;
