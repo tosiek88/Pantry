@@ -1,12 +1,12 @@
 import Paper from '@material-ui/core/Paper';
-import Modal from 'components/modals/productModal';
-import NewProductModal from 'components/modals/NewProductModal';
+import NewProductModal from 'components/Modals/NewProductModal';
+import ProductModal from 'components/Modals/ProductModal';
+import ProductsList from 'components/ProductsList/ProductsList';
 import { ToolbarApp } from 'components/ToolbarApp/ToolbarApp';
 import React, { useReducer } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { pantryReducer } from 'store/reducers/pantryReducer';
 import { GlobalContext, initState } from 'store/store';
-import ListProducts from 'components/ListProducts/ListProducts';
 
 export const Main = ({ classes }: any) => {
     const [globalState, dispatch] = useReducer(pantryReducer, initState);
@@ -16,7 +16,7 @@ export const Main = ({ classes }: any) => {
                 <ToolbarApp />
                 <Switch>
                     <Route exact path="/">
-                        <ListProducts />
+                        <ProductsList />
                     </Route>
                     <Route path="/shopping">
                         <p>Shopping</p>
@@ -31,7 +31,7 @@ export const Main = ({ classes }: any) => {
                 </Route>
 
                 <Route exact path="/store/product/:id">
-                    <Modal />
+                    <ProductModal />
                 </Route>
             </Paper>
         </GlobalContext.Provider>

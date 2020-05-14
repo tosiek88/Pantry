@@ -3,7 +3,7 @@ import { Product } from 'components/Product/Product';
 import React, { useContext } from 'react';
 import { GlobalContext, IProduct } from 'store/store';
 
-const ListProducts = () => {
+const ProductsList = () => {
     let { products } = useContext(GlobalContext).globalState;
 
     products = products.map((it: IProduct) => {
@@ -17,4 +17,4 @@ const ListProducts = () => {
     );
 };
 
-export default ListProducts;
+export default ProductsList;

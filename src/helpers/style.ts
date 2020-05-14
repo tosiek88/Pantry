@@ -1,5 +1,5 @@
 import { createMuiTheme, makeStyles, Theme } from '@material-ui/core/styles';
-import { withStyles, styled } from '@material-ui/core';
+import { withStyles } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 
 export const theme: Theme = createMuiTheme({
@@ -23,7 +23,7 @@ export const useStyles = makeStyles((theme) => {
         banner: {
             textAlign: 'center',
             fontSize: '3vh',
-            fontFamily: 'Roboto, sans-serif',
+            fontFamily: 'Robot, sans-serif',
             textTransform: 'uppercase',
             textShadow: '0px 10px 15px rgba(0, 0, 0, 1)',
             [theme.breakpoints.up('md')]: {

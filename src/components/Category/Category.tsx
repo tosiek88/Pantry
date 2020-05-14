@@ -13,7 +13,7 @@ export const Category: React.FC<{ category?: ICategory }> = ({ category }: { cat
                 setCategoryState(file);
             })
             .catch((e) => {
-                console.log(e);
+                // console.log(e);
             });
     }, [category.name]);
 

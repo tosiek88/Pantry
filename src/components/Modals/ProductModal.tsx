@@ -1,10 +1,10 @@
 import { Paper } from '@material-ui/core';
-import 'components/modals/productModal.scss';
+import 'components/Modals/ProductModal.scss';
 import React, { useContext } from 'react';
 import { Link, withRouter, useParams } from 'react-router-dom';
 import { GlobalContext, IProduct } from 'store/store';
 
-const Modal = (): JSX.Element => {
+const ProductModal = (): JSX.Element => {
     const params: { id?: string } = useParams();
     const { products } = useContext(GlobalContext).globalState;
     const modalProduct: IProduct = products.find((product: IProduct) => product.id === params.id);
@@ -25,4 +25,4 @@ const Modal = (): JSX.Element => {
     );
 };
 
-export default withRouter(Modal);
+export default withRouter(ProductModal);
